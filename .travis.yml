@@ -11,10 +11,10 @@ env:
   - VERSION=9.5-2.5 VARIANT=alpine
   - VERSION=9.4-2.5
   - VERSION=9.4-2.5 VARIANT=alpine
-  - VERSION=11-2.5
-  - VERSION=11-2.5 VARIANT=alpine
-  - VERSION=10-2.5
-  - VERSION=10-2.5 VARIANT=alpine
+  - VERSION=11.4-2.5
+  - VERSION=11.4-2.5 VARIANT=alpine
+  - VERSION=10.9-2.5
+  - VERSION=10.9-2.5 VARIANT=alpine
 
 install:
   - git clone https://github.com/docker-library/official-images.git ~/official-images
@@ -22,7 +22,7 @@ install:
 before_script:
   - env | sort
   - cd "$VERSION/$VARIANT"
-  - image="appropriate/postgis:$VERSION${VARIANT:+-${VARIANT}}"
+  - image="bmanuel/postgis:$VERSION${VARIANT:+-${VARIANT}}"
 
 script:
   - docker build --pull -t "$image" .
